@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Service Business Survey</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 5px;
+        padding: 20px;
+        background-color: #ebefff;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        line-height: 30px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        /* width: 100%; */
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/submit" method="POST">
+      <h1 style="text-align: center">نظرسنجی برای کسب‌وکارهای خدمات حیوانات خانگی</h1>
+
+      <label>لطفا نام یا نام شرکت را وارد کنید:</label><br />
+      <input type="text" name="nameOrCompany" /><br />
+
+      <label>1. کسب‌وکار شما چه نوع خدماتی برای حیوانات خانگی ارائه می‌دهد؟</label
+      ><br />
+      <input type="checkbox" name="service" value="Grooming" /> Pet Grooming
+      (Mobile or Salon)<br />
+      <input type="checkbox" name="service" value="Veterinary" /> Veterinary
+      Services<br />
+      <input type="checkbox" name="service" value="Training" /> آموزش حیوانات خانگی<br />
+      <input type="checkbox" name="service" value="Sitting" /> Pet
+      Sitting/Boarding<br />
+      <input type="checkbox" name="service" value="Retail" /> Pet Retail
+      (Food/Accessories)<br />
+      <input type="checkbox" name="service" value="Other" /> Other (please
+      specify): <input type="text" name="other_service" /><br />
+
+      <label>2. چند نفر در کسب‌وکار شما کار می‌کنند؟</label><br />
+      <select name="employees">
+        <option value="Solo">کسب‌وکار انفرادی (فقط من)</option>
+        <option value="2-5">۲-۵ کارمند</option>
+        <option value="6-20">۶-۲۰ کارمند</option>
+        <option value="20+">بیش از ۲۰ کارمند</option></select
+      ><br />
+
+      <label>3. در حال حاضر چگونه عملیات کسب‌وکار خود را مدیریت می‌کنید؟</label
+      ><br />
+      <input type="checkbox" name="operations" value="Paper" /> Paper-based
+      system<br />
+      <input type="checkbox" name="operations" value="Basic Digital" /> Basic
+      digital tools (e.g., Google Calendar, Excel)<br />
+      <input type="checkbox" name="operations" value="Comprehensive" />
+      نرم‌افزار جامع مدیریت کسب‌وکار<br />
+      <input type="checkbox" name="operations" value="Other" /> Other (please
+      specify): <input type="text" name="other_operations" /><br />
+
+      <label
+        >4. What are the biggest challenges you face in managing your
+        business?</label
+      ><br />
+      <input type="checkbox" name="challenges" value="Clients" /> Attracting and
+      retaining clients<br />
+      <input type="checkbox" name="challenges" value="Scheduling" /> Scheduling
+      and managing appointments<br />
+      <input type="checkbox" name="challenges" value="Communication" />
+      ارتباط با مشتریان<br />
+      <input type="checkbox" name="challenges" value="Financials" /> Managing
+      financials (billing, payments, expenses)<br />
+      <input type="checkbox" name="challenges" value="Marketing" /> Marketing
+      and promotions<br />
+      <input type="checkbox" name="challenges" value="Inventory" /> Managing
+      inventory and supplies<br />
+      <input type="checkbox" name="challenges" value="Employees" /> Recruiting
+      and managing employees<br />
+      <input type="checkbox" name="challenges" value="Other" /> Other (please
+      specify): <input type="text" name="other_challenges" /><br />
+
+      <label
+        >5. Which features would you find most valuable in a business management
+        platform?</label
+      ><br />
+      <input type="checkbox" name="features" value="Scheduling" /> Smart
+      scheduling and appointment reminders<br />
+      <input type="checkbox" name="features" value="Online Booking" /> Online
+      booking and client self-service portal<br />
+      <input type="checkbox" name="features" value="SMS" /> Two-way SMS
+      communication with clients<br />
+      <input type="checkbox" name="features" value="Google Maps" /> Google Maps
+      integration for appointment routing<br />
+      <input type="checkbox" name="features" value="Financial Tools" />
+      ابزارهای مالی (صدور صورت‌حساب، فاکتورها، مدیریت سپرده‌ها)<br />
+      <input type="checkbox" name="features" value="Reporting" /> Reporting and
+      analytics (e.g., by employee, breed, revenue)<br />
+      <input type="checkbox" name="features" value="Notifications" /> Automated
+      notifications (e.g., expired vaccinations, waitlist updates)<br />
+
+      <label
+        >6. مشتریان شما ترجیح می‌دهند چگونه با کسب‌وکار شما ارتباط برقرار کنند؟</label
+      ><br />
+      <input type="checkbox" name="communication" value="Phone" /> Phone
+      calls<br />
+      <input type="checkbox" name="communication" value="ایمیل" /> ایمیل<br />
+      <input type="checkbox" name="communication" value="Social Media" /> Social
+      media (e.g., Instagram, Facebook)<br />
+      <input type="checkbox" name="communication" value="Messaging" /> Messaging
+      apps (e.g., WhatsApp)<br />
+      <input type="checkbox" name="communication" value="Online Booking" />
+      پلتفرم رزرو آنلاین<br />
+
+      <label>7. کدام ابزارهای بازاریابی به رشد کسب‌وکار شما کمک می‌کنند؟</label
+      ><br />
+      <input type="checkbox" name="marketing" value="ایمیل Campaigns" />
+      کمپین‌های ایمیلی خودکار<br />
+      <input type="checkbox" name="marketing" value="Text Promotions" /> Text
+      message promotions<br />
+      <input type="checkbox" name="marketing" value="Social Media Scheduling" />
+      برنامه‌ریزی پست‌های شبکه‌های اجتماعی و ادغام آن‌ها<br />
+      <input type="checkbox" name="marketing" value="Review Booster" /> Review
+      booster integration with Google<br />
+
+      <label>8. کدام مدل پرداخت برای کسب‌وکار شما بهتر است؟</label><br />
+      <select name="payment_model">
+        <option value="Monthly">اشتراک ماهانه</option>
+        <option value="Annual">اشتراک سالانه با تخفیف</option>
+        <option value="Pay-per-use">مدل پرداخت به ازای استفاده</option>
+        <option value="One-time">خرید یک‌باره</option></select
+      ><br />
+
+      <label>9. آیا مایلید در نسخه نمایشی پلتفرم شرکت کنید؟</label
+      ><br />
+      <input type="radio" name="demo" value="Yes" /> Yes, please send me more
+      details.<br />
+      <input type="radio" name="demo" value="Maybe" /> Maybe later, but keep me
+      updated.<br />
+      <input type="radio" name="demo" value="No" /> خیر، علاقه‌ای ندارم.<br />
+
+      <label>10. آیا نظر یا پیشنهادی دارید؟</label
+      ><br />
+      <textarea name="feedback" rows="4"></textarea><br />
+
+      <label
+        >11. Would you like to stay updated about new features and
+        offers?</label
+      ><br />
+      <input type="radio" name="updates" value="Yes" /> بله، ایمیل من:
+      <input type="email" name="email" /><br />
+      <input type="radio" name="updates" value="No" /> خیر، متشکرم.<br />
+      <br />
+      <button type="submit" style="font-size: 25px; font-weight: bold">
+        ارسال
+      </button>
+    </form>
+  </body>
+</html>

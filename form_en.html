@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Service Business Survey</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 5px;
+        padding: 20px;
+        background-color: #ebefff;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        line-height: 30px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        /* width: 100%; */
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/submit" method="POST">
+      <h1 style="text-align: center">Survey for Pet Service Businesses</h1>
+
+      <label>Plese enter your name or your company name:</label><br />
+      <input type="text" name="nameOrCompany" /><br />
+
+      <label>1. What type of pet service does your business provide?</label
+      ><br />
+      <input type="checkbox" name="service" value="Grooming" /> Pet Grooming
+      (Mobile or Salon)<br />
+      <input type="checkbox" name="service" value="Veterinary" /> Veterinary
+      Services<br />
+      <input type="checkbox" name="service" value="Training" /> Pet Training<br />
+      <input type="checkbox" name="service" value="Sitting" /> Pet
+      Sitting/Boarding<br />
+      <input type="checkbox" name="service" value="Retail" /> Pet Retail
+      (Food/Accessories)<br />
+      <input type="checkbox" name="service" value="Other" /> Other (please
+      specify): <input type="text" name="other_service" /><br />
+
+      <label>2. How many employees work in your business?</label><br />
+      <select name="employees">
+        <option value="Solo">Solo Business (Only me)</option>
+        <option value="2-5">2-5 Employees</option>
+        <option value="6-20">6-20 Employees</option>
+        <option value="20+">More than 20 Employees</option></select
+      ><br />
+
+      <label>3. How do you currently manage your business operations?</label
+      ><br />
+      <input type="checkbox" name="operations" value="Paper" /> Paper-based
+      system<br />
+      <input type="checkbox" name="operations" value="Basic Digital" /> Basic
+      digital tools (e.g., Google Calendar, Excel)<br />
+      <input type="checkbox" name="operations" value="Comprehensive" />
+      Comprehensive business management software<br />
+      <input type="checkbox" name="operations" value="Other" /> Other (please
+      specify): <input type="text" name="other_operations" /><br />
+
+      <label
+        >4. What are the biggest challenges you face in managing your
+        business?</label
+      ><br />
+      <input type="checkbox" name="challenges" value="Clients" /> Attracting and
+      retaining clients<br />
+      <input type="checkbox" name="challenges" value="Scheduling" /> Scheduling
+      and managing appointments<br />
+      <input type="checkbox" name="challenges" value="Communication" />
+      Communicating with clients<br />
+      <input type="checkbox" name="challenges" value="Financials" /> Managing
+      financials (billing, payments, expenses)<br />
+      <input type="checkbox" name="challenges" value="Marketing" /> Marketing
+      and promotions<br />
+      <input type="checkbox" name="challenges" value="Inventory" /> Managing
+      inventory and supplies<br />
+      <input type="checkbox" name="challenges" value="Employees" /> Recruiting
+      and managing employees<br />
+      <input type="checkbox" name="challenges" value="Other" /> Other (please
+      specify): <input type="text" name="other_challenges" /><br />
+
+      <label
+        >5. Which features would you find most valuable in a business management
+        platform?</label
+      ><br />
+      <input type="checkbox" name="features" value="Scheduling" /> Smart
+      scheduling and appointment reminders<br />
+      <input type="checkbox" name="features" value="Online Booking" /> Online
+      booking and client self-service portal<br />
+      <input type="checkbox" name="features" value="SMS" /> Two-way SMS
+      communication with clients<br />
+      <input type="checkbox" name="features" value="Google Maps" /> Google Maps
+      integration for appointment routing<br />
+      <input type="checkbox" name="features" value="Financial Tools" />
+      Financial tools (billing, invoicing, deposit management)<br />
+      <input type="checkbox" name="features" value="Reporting" /> Reporting and
+      analytics (e.g., by employee, breed, revenue)<br />
+      <input type="checkbox" name="features" value="Notifications" /> Automated
+      notifications (e.g., expired vaccinations, waitlist updates)<br />
+
+      <label
+        >6. How do your clients prefer to communicate with your business?</label
+      ><br />
+      <input type="checkbox" name="communication" value="Phone" /> Phone
+      calls<br />
+      <input type="checkbox" name="communication" value="Email" /> Email<br />
+      <input type="checkbox" name="communication" value="Social Media" /> Social
+      media (e.g., Instagram, Facebook)<br />
+      <input type="checkbox" name="communication" value="Messaging" /> Messaging
+      apps (e.g., WhatsApp)<br />
+      <input type="checkbox" name="communication" value="Online Booking" />
+      Online booking platform<br />
+
+      <label>7. What marketing tools would help grow your business?</label
+      ><br />
+      <input type="checkbox" name="marketing" value="Email Campaigns" />
+      Automated email campaigns<br />
+      <input type="checkbox" name="marketing" value="Text Promotions" /> Text
+      message promotions<br />
+      <input type="checkbox" name="marketing" value="Social Media Scheduling" />
+      Social media post scheduling and integration<br />
+      <input type="checkbox" name="marketing" value="Review Booster" /> Review
+      booster integration with Google<br />
+
+      <label>8. Which payment model works best for your business?</label><br />
+      <select name="payment_model">
+        <option value="Monthly">Monthly subscription</option>
+        <option value="Annual">Annual subscription with a discount</option>
+        <option value="Pay-per-use">Pay-per-use model</option>
+        <option value="One-time">One-time purchase</option></select
+      ><br />
+
+      <label>9. Would you like to participate in a demo of Platform?</label
+      ><br />
+      <input type="radio" name="demo" value="Yes" /> Yes, please send me more
+      details.<br />
+      <input type="radio" name="demo" value="Maybe" /> Maybe later, but keep me
+      updated.<br />
+      <input type="radio" name="demo" value="No" /> No, I’m not interested.<br />
+
+      <label>10. Do you have any additional feedback or suggestions?</label
+      ><br />
+      <textarea name="feedback" rows="4"></textarea><br />
+
+      <label
+        >11. Would you like to stay updated about new features and
+        offers?</label
+      ><br />
+      <input type="radio" name="updates" value="Yes" /> Yes, my email is:
+      <input type="email" name="email" /><br />
+      <input type="radio" name="updates" value="No" /> No, thank you.<br />
+      <br />
+      <button type="submit" style="font-size: 25px; font-weight: bold">
+        Submit
+      </button>
+    </form>
+  </body>
+</html>

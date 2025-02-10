@@ -1,0 +1,200 @@
+[
+  {
+    "service": [
+      "Grooming",
+      "Veterinary"
+    ],
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": ""
+  },
+  {
+    "service": [
+      "Grooming",
+      "Veterinary",
+      "Training"
+    ],
+    "other_service": "",
+    "employees": "6-20",
+    "operations": "Other",
+    "other_operations": "other things",
+    "challenges": [
+      "Clients",
+      "Scheduling",
+      "Communication",
+      "Financials"
+    ],
+    "other_challenges": "",
+    "features": "Scheduling",
+    "communication": [
+      "Email",
+      "Social Media"
+    ],
+    "marketing": [
+      "Text Promotions",
+      "Social Media Scheduling"
+    ],
+    "payment_model": "One-time",
+    "demo": "Maybe",
+    "feedback": "No I'm sorry",
+    "updates": "Yes",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "service": "Grooming",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "",
+    "updates": "No"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "Alireza",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "alireza.vafaee@gmail.com"
+  },
+  {
+    "nameOrCompany": "",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": "",
+    "updates": "No"
+  },
+  {
+    "nameOrCompany": "ali",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": ""
+  },
+  {
+    "nameOrCompany": "aaa",
+    "other_service": "",
+    "employees": "Solo",
+    "other_operations": "",
+    "other_challenges": "",
+    "payment_model": "Monthly",
+    "feedback": "",
+    "email": ""
+  }
+]
