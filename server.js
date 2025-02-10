@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = 9000;
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -69,6 +69,7 @@ app.get('/result', basicAuth, (req, res) => {
 // Handle form submission
 app.post('/submit', (req, res) => {
     const formData = req.body;
+    formData.date = new Date();
     const filePath = path.join(__dirname, 'formData.json');
 
     // Read existing data, append new data, and save to file

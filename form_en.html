@@ -51,7 +51,7 @@
       <h1 style="text-align: center">Survey for Pet Service Businesses</h1>
 
       <label>Plese enter your name or your company name:</label><br />
-      <input type="text" name="nameOrCompany" /><br />
+      <input type="text" name="name" /><br />
 
       <label>1. What type of pet service does your business provide?</label
       ><br />
@@ -186,16 +186,8 @@
       document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('form');
         const submitButton = document.querySelector("button[type='submit']");
-
         form.addEventListener('submit', function () {
-          // Disable all form elements
           submitButton.disabled = true;
-          const inputs = form.querySelectorAll(
-            'input, select, textarea, button'
-          );
-          inputs.forEach((input) => (input.disabled = true));
-
-          // Optionally, you can change the button text to indicate processing
           submitButton.textContent = 'Submitting...';
         });
       });

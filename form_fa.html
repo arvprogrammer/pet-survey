@@ -48,18 +48,22 @@
   </head>
   <body>
     <form action="/submit" method="POST">
-      <h1 style="text-align: center">نظرسنجی برای کسب‌وکارهای خدمات حیوانات خانگی</h1>
+      <h1 style="text-align: center">
+        نظرسنجی برای کسب‌وکارهای خدمات حیوانات خانگی
+      </h1>
 
       <label>لطفا نام یا نام شرکت را وارد کنید:</label><br />
       <input type="text" name="nameOrCompany" /><br />
 
-      <label>1. کسب‌وکار شما چه نوع خدماتی برای حیوانات خانگی ارائه می‌دهد؟</label
+      <label
+        >1. کسب‌وکار شما چه نوع خدماتی برای حیوانات خانگی ارائه می‌دهد؟</label
       ><br />
       <input type="checkbox" name="service" value="Grooming" /> Pet Grooming
       (Mobile or Salon)<br />
       <input type="checkbox" name="service" value="Veterinary" /> Veterinary
       Services<br />
-      <input type="checkbox" name="service" value="Training" /> آموزش حیوانات خانگی<br />
+      <input type="checkbox" name="service" value="Training" /> آموزش حیوانات
+      خانگی<br />
       <input type="checkbox" name="service" value="Sitting" /> Pet
       Sitting/Boarding<br />
       <input type="checkbox" name="service" value="Retail" /> Pet Retail
@@ -127,7 +131,8 @@
       notifications (e.g., expired vaccinations, waitlist updates)<br />
 
       <label
-        >6. مشتریان شما ترجیح می‌دهند چگونه با کسب‌وکار شما ارتباط برقرار کنند؟</label
+        >6. مشتریان شما ترجیح می‌دهند چگونه با کسب‌وکار شما ارتباط برقرار
+        کنند؟</label
       ><br />
       <input type="checkbox" name="communication" value="Phone" /> Phone
       calls<br />
@@ -158,16 +163,14 @@
         <option value="One-time">خرید یک‌باره</option></select
       ><br />
 
-      <label>9. آیا مایلید در نسخه نمایشی پلتفرم شرکت کنید؟</label
-      ><br />
+      <label>9. آیا مایلید در نسخه نمایشی پلتفرم شرکت کنید؟</label><br />
       <input type="radio" name="demo" value="Yes" /> Yes, please send me more
       details.<br />
       <input type="radio" name="demo" value="Maybe" /> Maybe later, but keep me
       updated.<br />
       <input type="radio" name="demo" value="No" /> خیر، علاقه‌ای ندارم.<br />
 
-      <label>10. آیا نظر یا پیشنهادی دارید؟</label
-      ><br />
+      <label>10. آیا نظر یا پیشنهادی دارید؟</label><br />
       <textarea name="feedback" rows="4"></textarea><br />
 
       <label
@@ -182,20 +185,12 @@
         ارسال
       </button>
     </form>
-        <script>
+    <script>
       document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('form');
         const submitButton = document.querySelector("button[type='submit']");
-
         form.addEventListener('submit', function () {
-          // Disable all form elements
           submitButton.disabled = true;
-          const inputs = form.querySelectorAll(
-            'input, select, textarea, button'
-          );
-          inputs.forEach((input) => (input.disabled = true));
-
-          // Optionally, you can change the button text to indicate processing
           submitButton.textContent = 'صبر کنید';
         });
       });

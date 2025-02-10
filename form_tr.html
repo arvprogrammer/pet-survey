@@ -194,16 +194,8 @@
       document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('form');
         const submitButton = document.querySelector("button[type='submit']");
-
         form.addEventListener('submit', function () {
-          // Disable all form elements
           submitButton.disabled = true;
-          const inputs = form.querySelectorAll(
-            'input, select, textarea, button'
-          );
-          inputs.forEach((input) => (input.disabled = true));
-
-          // Optionally, you can change the button text to indicate processing
           submitButton.textContent = 'Bekleyin...';
         });
       });
