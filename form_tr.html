@@ -1,133 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pet Service Business Survey</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 5px;
-            padding: 20px;
-            background-color: #ebefff;
-        }
-        form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-            line-height: 30px;
-        }
-        label {
-            font-weight: bold;
-        }
-        input, select, textarea {
-            /* width: 100%; */
-            margin: 8px 0;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 5px;
+        padding: 20px;
+        background-color: #ebefff;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        line-height: 30px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        /* width: 100%; */
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <form action="/submit" method="POST">
+      <h1 style="text-align: center">
+        Evcil Hayvan Hizmeti İşletmeleri Anketi
+      </h1>
 
-<form action="/submit" method="POST">
-    <h1 style="text-align: center;">Evcil Hayvan Hizmeti İşletmeleri Anketi</h1>
+      <label>Lütfen adınızı veya şirket adınızı yazın:</label><br />
+      <input type="text" name="nameOrCompany" /><br />
 
-    <label>Lütfen adınızı veya şirket adınızı yazın:</label><br>
-    <input type="text" name="nameOrCompany"><br>
+      <label>1. İşletmeniz hangi tür evcil hayvan hizmeti sunuyor?</label><br />
+      <input type="checkbox" name="service" value="Grooming" /> Evcil Hayvan
+      Bakımı (Mobil veya Salon)<br />
+      <input type="checkbox" name="service" value="Veterinary" /> Veteriner
+      Hizmetleri<br />
+      <input type="checkbox" name="service" value="Training" /> Evcil Hayvan
+      Eğitimi<br />
+      <input type="checkbox" name="service" value="Sitting" /> Evcil Hayvan
+      Bakıcılığı / Konaklama<br />
+      <input type="checkbox" name="service" value="Retail" /> Evcil Hayvan
+      Perakendesi (Gıda/Aksesuar)<br />
+      <input type="checkbox" name="service" value="Other" /> Diğer (lütfen
+      belirtin): <input type="text" name="other_service" /><br />
 
-    <label>1. İşletmeniz hangi tür evcil hayvan hizmeti sunuyor?</label><br>
-    <input type="checkbox" name="service" value="Grooming"> Evcil Hayvan Bakımı (Mobil veya Salon)<br>
-    <input type="checkbox" name="service" value="Veterinary"> Veteriner Hizmetleri<br>
-    <input type="checkbox" name="service" value="Training"> Evcil Hayvan Eğitimi<br>
-    <input type="checkbox" name="service" value="Sitting"> Evcil Hayvan Bakıcılığı / Konaklama<br>
-    <input type="checkbox" name="service" value="Retail"> Evcil Hayvan Perakendesi (Gıda/Aksesuar)<br>
-    <input type="checkbox" name="service" value="Other"> Diğer (lütfen belirtin): <input type="text" name="other_service"><br>
-
-    <label>2. İşletmenizde kaç çalışan var?</label><br>
-    <select name="employees">
+      <label>2. İşletmenizde kaç çalışan var?</label><br />
+      <select name="employees">
         <option value="Solo">Tek kişilik işletme (Sadece ben)</option>
         <option value="2-5">2-5 Çalışan</option>
         <option value="6-20">6-20 Çalışan</option>
-        <option value="20+">20'den fazla çalışan</option>
-    </select><br>
+        <option value="20+">20'den fazla çalışan</option></select
+      ><br />
 
-    <label>3. Şu anda işletme operasyonlarınızı nasıl yönetiyorsunuz?</label><br>
-    <input type="checkbox" name="operations" value="Paper"> Kağıt tabanlı sistem<br>
-    <input type="checkbox" name="operations" value="Basic Digital"> Temel dijital araçlar (örn: Google Takvim, Excel)<br>
-    <input type="checkbox" name="operations" value="Comprehensive"> Kapsamlı işletme yönetim yazılımı<br>
-    <input type="checkbox" name="operations" value="Other"> Diğer (lütfen belirtin): <input type="text" name="other_operations"><br>
+      <label>3. Şu anda işletme operasyonlarınızı nasıl yönetiyorsunuz?</label
+      ><br />
+      <input type="checkbox" name="operations" value="Paper" /> Kağıt tabanlı
+      sistem<br />
+      <input type="checkbox" name="operations" value="Basic Digital" /> Temel
+      dijital araçlar (örn: Google Takvim, Excel)<br />
+      <input type="checkbox" name="operations" value="Comprehensive" /> Kapsamlı
+      işletme yönetim yazılımı<br />
+      <input type="checkbox" name="operations" value="Other" /> Diğer (lütfen
+      belirtin): <input type="text" name="other_operations" /><br />
 
-    <label>4. İşletmenizi yönetirken karşılaştığınız en büyük zorluklar nelerdir?</label><br>
-    <input type="checkbox" name="challenges" value="Clients"> Müşteri çekmek ve elde tutmak<br>
-    <input type="checkbox" name="challenges" value="Scheduling"> Randevuları planlama ve yönetme<br>
-    <input type="checkbox" name="challenges" value="Communication"> Müşterilerle iletişim kurma<br>
-    <input type="checkbox" name="challenges" value="Financials"> Finans yönetimi (faturalandırma, ödemeler, giderler)<br>
-    <input type="checkbox" name="challenges" value="Marketing"> Pazarlama ve tanıtım<br>
-    <input type="checkbox" name="challenges" value="Inventory"> Stok ve malzeme yönetimi<br>
-    <input type="checkbox" name="challenges" value="Employees"> Çalışanları işe alma ve yönetme<br>
-    <input type="checkbox" name="challenges" value="Other"> Diğer (lütfen belirtin): <input type="text" name="other_challenges"><br>
+      <label
+        >4. İşletmenizi yönetirken karşılaştığınız en büyük zorluklar
+        nelerdir?</label
+      ><br />
+      <input type="checkbox" name="challenges" value="Clients" /> Müşteri çekmek
+      ve elde tutmak<br />
+      <input type="checkbox" name="challenges" value="Scheduling" /> Randevuları
+      planlama ve yönetme<br />
+      <input type="checkbox" name="challenges" value="Communication" />
+      Müşterilerle iletişim kurma<br />
+      <input type="checkbox" name="challenges" value="Financials" /> Finans
+      yönetimi (faturalandırma, ödemeler, giderler)<br />
+      <input type="checkbox" name="challenges" value="Marketing" /> Pazarlama ve
+      tanıtım<br />
+      <input type="checkbox" name="challenges" value="Inventory" /> Stok ve
+      malzeme yönetimi<br />
+      <input type="checkbox" name="challenges" value="Employees" /> Çalışanları
+      işe alma ve yönetme<br />
+      <input type="checkbox" name="challenges" value="Other" /> Diğer (lütfen
+      belirtin): <input type="text" name="other_challenges" /><br />
 
-    <label>5. Bir işletme yönetim platformunda en değerli bulacağınız özellikler nelerdir?</label><br>
-    <input type="checkbox" name="features" value="Scheduling"> Akıllı planlama ve randevu hatırlatmaları<br>
-    <input type="checkbox" name="features" value="Online Booking"> Çevrimiçi rezervasyon ve müşteri self-servis portalı<br>
-    <input type="checkbox" name="features" value="SMS"> Müşterilerle çift yönlü SMS iletişimi<br>
-    <input type="checkbox" name="features" value="Google Maps"> Randevu rotası için Google Haritalar entegrasyonu<br>
-    <input type="checkbox" name="features" value="Financial Tools"> Finansal araçlar (faturalandırma, fatura kesme, depozit yönetimi)<br>
-    <input type="checkbox" name="features" value="Reporting"> Raporlama ve analiz (örn: çalışan, tür, gelir bazında)<br>
-    <input type="checkbox" name="features" value="Notifications"> Otomatik bildirimler (örn: süresi dolan aşılar, bekleme listesi güncellemeleri)<br>
+      <label
+        >5. Bir işletme yönetim platformunda en değerli bulacağınız özellikler
+        nelerdir?</label
+      ><br />
+      <input type="checkbox" name="features" value="Scheduling" /> Akıllı
+      planlama ve randevu hatırlatmaları<br />
+      <input type="checkbox" name="features" value="Online Booking" /> Çevrimiçi
+      rezervasyon ve müşteri self-servis portalı<br />
+      <input type="checkbox" name="features" value="SMS" /> Müşterilerle çift
+      yönlü SMS iletişimi<br />
+      <input type="checkbox" name="features" value="Google Maps" /> Randevu
+      rotası için Google Haritalar entegrasyonu<br />
+      <input type="checkbox" name="features" value="Financial Tools" /> Finansal
+      araçlar (faturalandırma, fatura kesme, depozit yönetimi)<br />
+      <input type="checkbox" name="features" value="Reporting" /> Raporlama ve
+      analiz (örn: çalışan, tür, gelir bazında)<br />
+      <input type="checkbox" name="features" value="Notifications" /> Otomatik
+      bildirimler (örn: süresi dolan aşılar, bekleme listesi güncellemeleri)<br />
 
-    <label>6. Müşterileriniz işletmenizle nasıl iletişim kurmayı tercih ediyor?</label><br>
-    <input type="checkbox" name="communication" value="Phone"> Telefon görüşmeleri<br>
-    <input type="checkbox" name="communication" value="E-posta"> E-posta<br>
-    <input type="checkbox" name="communication" value="Social Media"> Sosyal medya (örn: Instagram, Facebook)<br>
-    <input type="checkbox" name="communication" value="Messaging"> Mesajlaşma uygulamaları (örn: WhatsApp)<br>
-    <input type="checkbox" name="communication" value="Online Booking"> Çevrimiçi rezervasyon platformu<br>
+      <label
+        >6. Müşterileriniz işletmenizle nasıl iletişim kurmayı tercih
+        ediyor?</label
+      ><br />
+      <input type="checkbox" name="communication" value="Phone" /> Telefon
+      görüşmeleri<br />
+      <input type="checkbox" name="communication" value="E-posta" />
+      E-posta<br />
+      <input type="checkbox" name="communication" value="Social Media" /> Sosyal
+      medya (örn: Instagram, Facebook)<br />
+      <input type="checkbox" name="communication" value="Messaging" />
+      Mesajlaşma uygulamaları (örn: WhatsApp)<br />
+      <input type="checkbox" name="communication" value="Online Booking" />
+      Çevrimiçi rezervasyon platformu<br />
 
-    <label>7. İşletmenizin büyümesine hangi pazarlama araçları yardımcı olur?</label><br>
-    <input type="checkbox" name="marketing" value="E-posta Campaigns"> Otomatik e-posta kampanyaları<br>
-    <input type="checkbox" name="marketing" value="Text Promotions"> SMS promosyonları<br>
-    <input type="checkbox" name="marketing" value="Social Media Scheduling"> Sosyal medya gönderi planlaması ve entegrasyonu<br>
-    <input type="checkbox" name="marketing" value="Review Booster"> Google ile değerlendirme artırıcı entegrasyonu<br>
+      <label
+        >7. İşletmenizin büyümesine hangi pazarlama araçları yardımcı
+        olur?</label
+      ><br />
+      <input type="checkbox" name="marketing" value="E-posta Campaigns" />
+      Otomatik e-posta kampanyaları<br />
+      <input type="checkbox" name="marketing" value="Text Promotions" /> SMS
+      promosyonları<br />
+      <input type="checkbox" name="marketing" value="Social Media Scheduling" />
+      Sosyal medya gönderi planlaması ve entegrasyonu<br />
+      <input type="checkbox" name="marketing" value="Review Booster" /> Google
+      ile değerlendirme artırıcı entegrasyonu<br />
 
-    <label>8. İşletmeniz için en iyi ödeme modeli hangisidir?</label><br>
-    <select name="payment_model">
+      <label>8. İşletmeniz için en iyi ödeme modeli hangisidir?</label><br />
+      <select name="payment_model">
         <option value="Monthly">Aylık abonelik</option>
         <option value="Annual">İndirimli yıllık abonelik</option>
         <option value="Pay-per-use">Kullanım başına ödeme modeli</option>
-        <option value="One-time">Tek seferlik satın alma</option>
-    </select><br>
+        <option value="One-time">Tek seferlik satın alma</option></select
+      ><br />
 
-    <label>9. Platformun demosuna katılmak ister misiniz?</label><br>
-    <input type="radio" name="demo" value="Yes"> Evet, lütfen bana daha fazla bilgi gönderin.<br>
-    <input type="radio" name="demo" value="Maybe"> Belki daha sonra, ancak beni güncel tutun.<br>
-    <input type="radio" name="demo" value="No"> Hayır, ilgilenmiyorum.<br>
+      <label>9. Platformun demosuna katılmak ister misiniz?</label><br />
+      <input type="radio" name="demo" value="Yes" /> Evet, lütfen bana daha
+      fazla bilgi gönderin.<br />
+      <input type="radio" name="demo" value="Maybe" /> Belki daha sonra, ancak
+      beni güncel tutun.<br />
+      <input type="radio" name="demo" value="No" /> Hayır, ilgilenmiyorum.<br />
 
-    <label>10. Eklemek istediğiniz herhangi bir geri bildirim veya öneriniz var mı?</label><br>
-    <textarea name="feedback" rows="4"></textarea><br>
+      <label
+        >10. Eklemek istediğiniz herhangi bir geri bildirim veya öneriniz var
+        mı?</label
+      ><br />
+      <textarea name="feedback" rows="4"></textarea><br />
 
-    <label>11. Yeni özellikler ve tekliflerden haberdar olmak ister misiniz?</label><br>
-    <input type="radio" name="updates" value="Yes"> Evet, e-posta adresim: <input type="email" name="email"><br>
-    <input type="radio" name="updates" value="No"> Hayır, teşekkür ederim.<br>
-    <br>
-    <button type="submit" style="font-size: 25px; font-weight: bold;">Gönder</button>
-</form>
+      <label
+        >11. Yeni özellikler ve tekliflerden haberdar olmak ister
+        misiniz?</label
+      ><br />
+      <input type="radio" name="updates" value="Yes" /> Evet, e-posta adresim:
+      <input type="email" name="email" /><br />
+      <input type="radio" name="updates" value="No" /> Hayır, teşekkür
+      ederim.<br />
+      <br />
+      <button type="submit" style="font-size: 25px; font-weight: bold">
+        Gönder
+      </button>
+    </form>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        const submitButton = document.querySelector("button[type='submit']");
 
-</body>
+        form.addEventListener('submit', function () {
+          // Disable all form elements
+          submitButton.disabled = true;
+          const inputs = form.querySelectorAll(
+            'input, select, textarea, button'
+          );
+          inputs.forEach((input) => (input.disabled = true));
+
+          // Optionally, you can change the button text to indicate processing
+          submitButton.textContent = 'Bekleyin...';
+        });
+      });
+    </script>
+  </body>
 </html>

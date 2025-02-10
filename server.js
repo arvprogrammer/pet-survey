@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = 9000;
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,6 +13,10 @@ app.use(bodyParser.json());
 // Serve the HTML form
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/favicon.ico', (req, res) => {
+    res.sendFile(path.join(__dirname, 'favicon.ico'));
 });
 
 app.get('/en', (req, res) => {
@@ -61,11 +65,11 @@ app.post('/submit', (req, res) => {
                 console.error('Error writing file:', writeErr);
                 return res.status(500).send('Error saving data');
             }
-            if (req.headers.referer?.indexOf('/en')) {
+            if (req.headers.referer?.indexOf('/en') > -1) {
                 res.redirect('/en/success');
-            } else if (req.headers.referer?.indexOf('/tr')) {
+            } else if (req.headers.referer?.indexOf('/tr') > -1) {
                 res.redirect('/tr/success');
-            } else if (req.headers.referer?.indexOf('/fa')) {
+            } else if (req.headers.referer?.indexOf('/fa') > -1) {
                 res.redirect('/fa/success');
             }
         });
