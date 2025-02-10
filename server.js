@@ -4,11 +4,30 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 9000;
+const PORT = 3000;
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Basic Authentication Middleware
+const basicAuth = (req, res, next) => {
+    const auth = req.headers['authorization'];
+    if (!auth) {
+        res.setHeader('WWW-Authenticate', 'Basic');
+        return res.status(401).send('Authentication required');
+    }
+
+    const credentials = Buffer.from(auth.split(' ')[1], 'base64').toString().split(':');
+    const username = credentials[0];
+    const password = credentials[1];
+
+    if (username === 'admin' && password === 'Mr.free.66') {
+        return next();
+    } else {
+        return res.status(403).send('Access denied');
+    }
+};
 
 // Serve the HTML form
 app.get('/', (req, res) => {
@@ -41,6 +60,10 @@ app.get('/tr/success', (req, res) => {
 
 app.get('/fa/success', (req, res) => {
     res.sendFile(path.join(__dirname, 'message_fa.html'));
+});
+
+app.get('/result', basicAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, 'formData.json'));
 });
 
 // Handle form submission
