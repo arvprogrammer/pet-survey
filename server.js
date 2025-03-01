@@ -2,7 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
-const AWS = require("@aws-sdk/client-sesv2");
+// const AWS = require("@aws-sdk/client-sesv2");
+const { SESv2Client, SendEmailCommand } = require("@aws-sdk/client-sesv2");
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -10,10 +11,12 @@ dotenv.config();
 const app = express();
 const PORT = 9000;
 
-const client = new AWS.SESv2({
-    accessKeyId: process.env.AWS_SES_ACCESS_KEY,       // e.g., 'AKIAXXXXXXXXXXXXX'
-    secretAccessKey: process.env.AWS_SES_SECRET_KEY, // e.g., 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    region: 'us-east-1', // change to your desired region
+const client = new SESv2Client({
+    region: 'eu-west-3',
+    // credentials: {
+    //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    // }
 });
 
 // Middleware to parse form data
@@ -80,30 +83,31 @@ app.get('/result', basicAuth, (req, res) => {
 });
 
 // Handle form submission
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
     const formData = req.body;
-    formData.date = new Date();
     const filePath = path.join(__dirname, 'formData.json');
 
-    const params = {
+    // Send email
+    const command = new SendEmailCommand({
+        FromEmailAddress: 'no-reply@chummy.pet',
         Destination: {
             ToAddresses: ['info@chummy.pet'],
         },
-        Message: {
-            Body: {
-                Text: { Data: JSON.stringify(formData, null, 10) },
+        Content: {
+            Simple: {
+                Body: {
+                    Html: { Data: Object.keys(formData).map(key => `<b>${capitalize(key)}</b>: ${formData[key]}`).join('<br>') },
+                },
+                Subject: { Data: 'New Survey Response' },
             },
-            Subject: { Data: 'New Survey Response' },
-        },
-        Source: 'no-reply@chummy.pet', // Must be a verified sender in AWS SES
-    };
-    client.listContactLists(params, (err, data) => {
-        if (err) {
-            console.error('Error sending email:', err);
-        } else {
-            console.log('Email sent successfully:', data);
         }
     });
+    try {
+        const data = await client.send(command)
+        console.log('Email sent successfully:', data);
+    } catch (err) {
+        console.error('Error sending email:', err);
+    }
 
     // Read existing data, append new data, and save to file
     fs.readFile(filePath, (err, data) => {
@@ -128,7 +132,7 @@ app.post('/submit', (req, res) => {
                 res.redirect('/tr/success');
             } else if (req.headers.referer?.indexOf('/fa') > -1) {
                 res.redirect('/fa/success');
-            }else {
+            } else {
                 res.redirect('/en/success');
             }
         });
@@ -138,3 +142,7 @@ app.post('/submit', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+function capitalize(val) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
