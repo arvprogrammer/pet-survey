@@ -2,9 +2,18 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const AWS = require('aws-sdk');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 const PORT = 9000;
+
+AWS.config.update({
+    accessKeyId: process.env.AWS_SES_ACCESS_KEY,       // e.g., 'AKIAXXXXXXXXXXXXX'
+    secretAccessKey: process.env.AWS_SES_SECRET_KEY, // e.g., 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    region: 'us-east-1', // change to your desired region
+});
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,7 +40,8 @@ const basicAuth = (req, res, next) => {
 
 // Serve the HTML form
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    // res.sendFile(path.join(__dirname, 'index.html'));
+    res.redirect('/en');
 });
 
 app.get('/favicon.ico', (req, res) => {
@@ -71,6 +81,28 @@ app.post('/submit', (req, res) => {
     const formData = req.body;
     formData.date = new Date();
     const filePath = path.join(__dirname, 'formData.json');
+
+    const ses = new AWS.SES({ apiVersion: '2010-12-01' });
+    const params = {
+        Destination: {
+            ToAddresses: ['info@chummy.pet'],
+        },
+        Message: {
+            Body: {
+                Text: { Data: JSON.stringify(formData, null, 10) },
+            },
+            Subject: { Data: 'New Survey Response' },
+        },
+        Source: 'info@chummy.pet', // Must be a verified sender in AWS SES
+    };
+
+    ses.sendEmail(params, (err, data) => {
+        if (err) {
+            console.error('Error sending email:', err);
+        } else {
+            console.log('Email sent successfully:', data);
+        }
+    });
 
     // Read existing data, append new data, and save to file
     fs.readFile(filePath, (err, data) => {
