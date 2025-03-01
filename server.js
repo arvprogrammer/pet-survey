@@ -2,14 +2,15 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
-const AWS = require('aws-sdk');
+const AWS = require("@aws-sdk/client-sesv2");
 const dotenv = require('dotenv');
+
 dotenv.config();
 
 const app = express();
 const PORT = 9000;
 
-AWS.config.update({
+const client = new AWS.SESv2({
     accessKeyId: process.env.AWS_SES_ACCESS_KEY,       // e.g., 'AKIAXXXXXXXXXXXXX'
     secretAccessKey: process.env.AWS_SES_SECRET_KEY, // e.g., 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     region: 'us-east-1', // change to your desired region
@@ -41,7 +42,8 @@ const basicAuth = (req, res, next) => {
 // Serve the HTML form
 app.get('/', (req, res) => {
     // res.sendFile(path.join(__dirname, 'index.html'));
-    res.redirect('/en');
+    // res.redirect('/en');
+    res.sendFile(path.join(__dirname, 'form_en.html'));
 });
 
 app.get('/favicon.ico', (req, res) => {
@@ -49,7 +51,8 @@ app.get('/favicon.ico', (req, res) => {
 });
 
 app.get('/en', (req, res) => {
-    res.sendFile(path.join(__dirname, 'form_en.html'));
+    res.redirect('/');
+    // res.sendFile(path.join(__dirname, 'form_en.html'));
 });
 
 app.get('/tr', (req, res) => {
@@ -82,7 +85,6 @@ app.post('/submit', (req, res) => {
     formData.date = new Date();
     const filePath = path.join(__dirname, 'formData.json');
 
-    const ses = new AWS.SES({ apiVersion: '2010-12-01' });
     const params = {
         Destination: {
             ToAddresses: ['info@chummy.pet'],
@@ -93,10 +95,9 @@ app.post('/submit', (req, res) => {
             },
             Subject: { Data: 'New Survey Response' },
         },
-        Source: 'info@chummy.pet', // Must be a verified sender in AWS SES
+        Source: 'no-reply@chummy.pet', // Must be a verified sender in AWS SES
     };
-
-    ses.sendEmail(params, (err, data) => {
+    client.listContactLists(params, (err, data) => {
         if (err) {
             console.error('Error sending email:', err);
         } else {
