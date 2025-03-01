@@ -128,6 +128,8 @@ app.post('/submit', (req, res) => {
                 res.redirect('/tr/success');
             } else if (req.headers.referer?.indexOf('/fa') > -1) {
                 res.redirect('/fa/success');
+            }else {
+                res.redirect('/en/success');
             }
         });
     });
